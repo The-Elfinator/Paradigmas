@@ -52,26 +52,26 @@ Modification (IndexIf):
 
 ## Homework 5 (Generic Expression)
 * Add in expression.parser from 3 variables posibility of evaluating expressions in different types (BigInteger, integer, double):
-  * Add class `GenericTabulator ` implemented interface `expression.generic.Tabulator`
+ * Add class `GenericTabulator ` implemented interface `expression.generic.Tabulator`
     `public interface Tabulator {
         Object[][][] tabulate(
             String mode, String expression, 
             int x1, int x2, int y1, int y2, int z1, int z2
         ) throws Exception;
-     }`
-  * `mode` - in which type we need to evaluate: `i` - int with exceptions (overflow), `d` - double, `bi` - BigInteger
-  * `expression` - must be parsed
-  * `x1, x2; y1, y2; z1, z2` - diapazon of variables
-  * Must be returned Object\[\]\[\]\[\] where Result\[i\]\[j\]\[k\] = expression.evaluate(x1 + i, y1 + j, z1 + k) where i = 0..x2-x1, j and k - analogically. If we cathced overflowError then Result\[i\]\[j\]\[k\] must be `null`
+     }`;
+ * `mode` - in which type we need to evaluate: `i` - int with exceptions (overflow), `d` - double, `bi` - BigInteger;
+ * `expression` - must be parsed;
+ * `x1, x2; y1, y2; z1, z2` - diapazon of variables;
+ * Must be returned Object\[\]\[\]\[\] where Result\[i\]\[j\]\[k\] = expression.evaluate(x1 + i, y1 + j, z1 + k) where i = 0..x2-x1, j and k - analogically. If we cathced overflowError then Result\[i\]\[j\]\[k\] must be `null`.
 * Update interface of command line:
-  * 1-st argument of command line is mode: `-i`, `-d` or `-bi` - obviously integer-, double- or BigInteger-mode
-  * 2-nd argument - expression
-  * Result: expression.evaluate for x = -2..2, y = -2..2 and z = -2..2
+ * 1-st argument of command line is mode: `-i`, `-d` or `-bi` - obviously integer-, double- or BigInteger-mode;
+ * 2-nd argument - expression;
+ * Result: expression.evaluate for x = -2..2, y = -2..2 and z = -2..2.
 Modification (Cmm and CmmUls):
- * Realise unary operation `count` - count of setted bits: count 5 -> 2
- * Realise binary operation `min` and `max`
+ * Realise unary operation `count` - count of setted bits: count 5 -> 2;
+ * Realise binary operation `min` and `max`;
  * Add modes: 
-   * `u` - int without overflow
-   * `l` - longint without overflow
-   * `s` - shortint without overflow
+  * `u` - int without overflow;
+  * `l` - longint without overflow;
+  * `s` - shortint without overflow.
 
