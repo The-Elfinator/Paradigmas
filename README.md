@@ -7,6 +7,7 @@ Add exceptions:
 * evaluate exception:
   * DivisionByZeroException;
   * IntegerOutOfBoundsException.
+
 Modification (MinMax and Zeroes):
 * Realise operations `Min` and `Max` (minimal priority)
 * Realise unary operations:
@@ -18,6 +19,7 @@ Modification (MinMax and Zeroes):
 * Input: int x; array of integers sorted by non-growth. Output: min i: array\[i\] <= x
 * For main-, iterativeBinSearch- and recursiveBinSearch-functions must be written contracts. For realisation of iterative and recursive binSearch must be provided evidences of compliance with contracts in terms of Hoar's triples
 * The first command line argument is x, then array. Example of launch: `java search.BinarySearch 3 5 4 3 2 1`, expected result: `2`
+
 Modification (Shift):
 * Input: array sorted by growth, cyclically shift on `k` elements; all elemnts in array are different.
 *  Output: find the `k`.
@@ -34,6 +36,7 @@ Modification (Shift):
   * clear - clean the queue;
   * Other methods if you need for queue (details of realisations).
 * Write tests to queues.
+
 Modification (Index):
 * Add method:
   * indexOf(x) - min i: array[i] == x
@@ -44,6 +47,7 @@ Modification (Index):
 * Define interface of Queue and describe its contract
 * Realise linkedQueue
 * Similar part of ArrayQueue and LinkedQueue must be in abstract class
+
 Modification (IndexIf):
 * Realise methods:
   * indexIf(Predicate) - min i: array[i] sattisfied predicate;
@@ -67,6 +71,7 @@ Modification (IndexIf):
   * 1-st argument of command line is mode: `-i`, `-d` or `-bi` - obviously integer-, double- or BigInteger-mode;
   * 2-nd argument - expression;
   * Result: expression.evaluate for x = -2..2, y = -2..2 and z = -2..2.
+
 Modification (Cmm and CmmUls):
  * Realise unary operation `count` - count of setted bits: count 5 -> 2;
  * Realise binary operation `min` and `max`;
