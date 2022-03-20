@@ -1,6 +1,8 @@
 # Paradigmas
 IFMO, prog, Semester 2 (paradigms of programming)
 
+# Java
+
 ## Homework 1 (Exception parser)
 Add exceptions:
 * parsing exception;
@@ -55,9 +57,9 @@ Modification (IndexIf):
 * In case when there is no such index - return `-1`.
 
 ## Homework 5 (Generic Expression)
-* Add in expression.parser from 3 variables posibility of evaluating expressions in different types (BigInteger, integer, double):
-  * Add class `GenericTabulator ` implemented interface `expression.generic.Tabulator`
-```
+* Add in expression.parser with 3 variables ability to calculate an expressions in various modes (BigInteger, Integer, Double):
+  * Add class `GenericTabulator ` implements interface `expression.generic.Tabulator`
+```Java
 public interface Tabulator {
     Object[][][] tabulate(
         String mode, String expression, 
@@ -65,19 +67,40 @@ public interface Tabulator {
     ) throws Exception;
 }
 ```
-  * `mode` - in which type we need to evaluate: `i` - int with exceptions (overflow), `d` - double, `bi` - BigInteger;
-  * `expression` - must be parsed;
-  * `x1, x2; y1, y2; z1, z2` - diapazon of variables;
-  * Must be returned Object\[\]\[\]\[\] where Result\[i\]\[j\]\[k\] = expression.evaluate(x1 + i, y1 + j, z1 + k) where i = 0..x2-x1, j and k - analogically. If we cathced overflowError then Result\[i\]\[j\]\[k\] must be `null`.
+  * `mode` - in which type we need to calculate: `i` - int with exceptions (overflow), `d` - double, `bi` - BigInteger;
+  * `expression` - calculated expression which must be parsed;
+  * `x1, x2; y1, y2; z1, z2` - variable change range (inclusive);
+  * Must be returned Object\[\]\[\]\[\] where Result\[i\]\[j\]\[k\] = expression.evaluate(x1 + i, y1 + j, z1 + k) where i = 0..x2-x1, j and k - similarly. If we catched overflowError then Result\[i\]\[j\]\[k\] is `null`.
 * Update interface of command line:
   * 1-st argument of command line is mode: `-i`, `-d` or `-bi` - obviously integer-, double- or BigInteger-mode;
   * 2-nd argument - expression;
-  * Result: expression.evaluate for x = -2..2, y = -2..2 and z = -2..2.
+  * Result: expression.evaluate for x in \[-2; 2\], y in \[-2; 2\] and z in \[-2; 2\].
 
 Modification (Cmm and CmmUls):
- * Realise unary operation `count` - count of setted bits: count 5 -> 2;
+ * Realise unary operation `count` - number of set bits: count 5 -> 2;
  * Realise binary operation `min` and `max`;
  * Add modes: 
-   * `u` - int without overflow;
-   * `l` - longint without overflow;
-   * `s` - shortint without overflow.
+   * `u` - Integer without overflow;
+   * `l` - Long without overflow;
+   * `s` - Short without overflow.
+
+# JavaScript
+
+## Homework 6 (Functional expressions on JavaScript)
+* Realise functions `cnst`, `variable`, `add`, `subtract`, `multiply`, `divide`, `negate` for calculating expressions with 3 variables;
+* Sample expression:
+```JavaScript
+let expr = subtract(
+    multiply(
+        cnst(2),
+        variable("x")
+    ),
+    cnst(3)
+);
+
+println(expr(5, 0, 0));
+```
+Output is `7`
+* Code have to calculate expression `x^2-2x+1` for x in \[0; 10\];
+* __Hard mode__: realise function `parse` that parses expression in *Reverse Polish Notation*. Example: `parse("x x 2 - * x * 1 +")(5)`, result is `76`;
+
