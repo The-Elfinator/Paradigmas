@@ -57,12 +57,14 @@ Modification (IndexIf):
 ## Homework 5 (Generic Expression)
 * Add in expression.parser from 3 variables posibility of evaluating expressions in different types (BigInteger, integer, double):
   * Add class `GenericTabulator ` implemented interface `expression.generic.Tabulator`
-    `public interface Tabulator {
-        Object[][][] tabulate(
-            String mode, String expression, 
-            int x1, int x2, int y1, int y2, int z1, int z2
-        ) throws Exception;
-     }`;
+```
+public interface Tabulator {
+    Object[][][] tabulate(
+        String mode, String expression, 
+        int x1, int x2, int y1, int y2, int z1, int z2
+    ) throws Exception;
+}
+```
   * `mode` - in which type we need to evaluate: `i` - int with exceptions (overflow), `d` - double, `bi` - BigInteger;
   * `expression` - must be parsed;
   * `x1, x2; y1, y2; z1, z2` - diapazon of variables;
