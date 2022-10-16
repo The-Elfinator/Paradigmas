@@ -171,3 +171,67 @@ Modification (SinhCosh):
  Modification (Shapeless):
  * Add operations of piecemeal addition/subtraction/multiplication/division (_s+/s-/s*/sd_) numbers and vectors of an arbitary length. Example: `(s+ [[1 2] 3] [[4 5] 6])` should return `[[5 7] 9]`.
  
+## Homework 10 (Functional expressions)
+ * Realise functions `constant`, `variable`, `add`, `subtract`, `multiply`, `divide` and `negate` for arithmetic operations
+ * Here is an example of representation expression `2*x-3`:
+```
+(def expr
+  (subtract
+    (multiply
+      (constant 2)
+      (variable "x"))
+    (constant 3)))
+```
+ * The expression must be a function that returns the value of the expression when substituting variables specified by the mapping. Examle: `(expr {"x" 2})` equals 1
+ * Realise parser of prefix form expression, e.g. `(parseFunction "(- (* 2 x) 3)")` must be equal to `expr`
+Modification (PowLog):
+ * realise binary operations: `pow` (Exponentiation), e.g. `(pow 2 3)` equals to 8; `log` (Logarithm of the absolute value on the basis of the absolute value), e.g. `(log -2 -8)` equals to 3
+ 
+ ## Homework 11 (Object expressions)
+  * Realise constructors `Constant`, `Variable`, `Add`, `Subtract`, `Multiply`, `Divide` and `Negate` for arithmetic operations:
+    * Here is an example with an expression `2*x-3`:
+    ```
+    (def expr
+      (Subtract
+        (Multiply
+          (Constant 2)
+          (Variable "x"))
+        (Constant 3)))
+    ```
+    * Function `(evaluate expression vars)` should evaluate an `expression` for variables specified by the mapping `vars`, e.g. `(evaluate expr {"x" 2})` must return 1
+    * Function `(toString expression)` should return the expression in prefix form
+    * Function `(parseObject "expression")` should parse an expression written in prefix form, e.g. `(parseObject "(- (* 2 x) 3)")` should be equals to _expr_
+    * Function `(diff expression "variable")` should return the expression which is the derivative of original expression by variable _x_. Example: `(diff expr "x")` should return the expression which is equivalent to `(Constant 2)` (expressions `(Subtract (Constant 2) (Constant 0))` and 
+```
+(Subtract
+  (Add
+    (Multiply (Constant 0) (Variable "x"))
+    (Multiply (Constant 2) (Constant 1)))
+  (Constant 0))
+```
+will be correct answer).
+
+Modification (PowLog):
+ * Realise functions `Pow` (exponentiation) and `Log` (logarithm of the absolute value on the basis of the absolute value)
+ 
+## Homework 12 (Combinatorial parsers)
+ * Realise function `(parseObjectSuffix "expression")` which parses an expression written in the suffix-form and function `toStringSuffix` which returns the expression written in the suffix-form, e.g. `(toStringSuffix (parseObjectSuffix "( ( 2 x * ) 3 - )"))` must return `((2 x *) 3 -)`
+
+Modification (Variables and Bitwise):
+ * Realise supporting of variables consisting of an arbitary number of letters _XYZ_ in any case
+ * Realise bit operations:
+   * `BitAnd` (`&`) - And: `5 & 6` is 4
+   * `BitOr` (`|`) - Or: `5 | 6` is 7
+   * `BitXor` (`^`) - Xor: `5 ^ 6` is 3
+
+# Prolog
+
+## Homework 13 (Primes on Prolog)
+ * Make rules:
+   * prime(N) - checking if N is primal
+   * composite(N) - checking if N is not primal
+   * prime_divisors(N, Divisors) - checking if the list Divisors contains all primal divisors of N, sorted in ascending order
+ 
+ Modification (Unique)
+  * Make rule `unique_prime_divisors(N, Divisors)` - returns prime divisors without repeatting, e.g. `unique_prime_divisors(99, [3, 11])`.
+
