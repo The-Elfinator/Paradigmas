@@ -127,14 +127,47 @@ Modification (PieSinhCosh):
    * _toString_ method must return the expression written in [Reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation). Example: _expr.toString()_ must return ` 2 x * 3 - `
  * _parse_ function should return parsed object expression
  * __Hard variant__: method _diff("x")_ must return the expression which is the derivative of original expression by variable _x_. Example: _expr.diff("x")_ should return the expression which is equivalent to `new Const(2)` (expressions `new Subtract(new Const(2), new Const(0))` and 
-`new Subtract(
+```
+new Subtract(
     new Add(
         new Multiply(new Const(0), new Variable("x")),
         new Multiply(new Const(2), new Const(1))
     )
     new Const(0)
-)`
+)
+```
 will be correct answer).
 
-Modification:
-Realise unary operations `Sinh` - hyperbolic sinus and `Cosh` - hyperbolic cosinus
+Modification (SinhCosh):
+ * Realise unary operations `Sinh` - hyperbolic sinus and `Cosh` - hyperbolic cosinus
+
+## Homework 8 (Exceptions on JS)
+ * Add function `parsePrefix()` to Homework 7 which parses expression like `(- (* 2 x) 3)` . If the expression isn't correct then method `parsePrefix` must return error human-read message
+ * Add function `prefix()` to Homework 7 which returns the expression in prefix form
+ 
+ Modification (MeanVar):
+ * Realise operations of an arbitrary number of arguments
+   * `Mean` - math expectation of arguments, `(mean 1 2 6)` equals 3
+   * `Var` - variance of arguments, `(var 2 5 11)` equals 14
+ 
+# Clojure
+
+## Homework 9 (linear algebra on Clojure)
+ * Realise functions to work with objects from linear algebra:
+   * scalar - number;
+   * vector - vector of numbers;
+   * matrix - vector of vectors of numbers;
+ * Operations with vectors:
+   * _v+/v-/v*/vd_ - coordinate addition/subtraction/multiplication/division;
+   * _scalar/vect_ - scalar/vector multiplication;
+   * _v*s_ - multiplication of vector and scalar;
+ * Operations with matrixes:
+   * _m+/m-/m*/md_ - piecemeal addition/subtraction/multiplication/division;
+   * _m*s_ - multiplication on scalar;
+   * _m*v_ - multiplication on vector;
+   * _m*m_ - multiplication of 2 matrixes;
+   * _transpose_ - transposition;
+
+ Modification (Shapeless):
+ * Add operations of piecemeal addition/subtraction/multiplication/division (_s+/s-/s*/sd_) numbers and vectors of an arbitary length. Example: `(s+ [[1 2] 3] [[4 5] 6])` should return `[[5 7] 9]`.
+ 
