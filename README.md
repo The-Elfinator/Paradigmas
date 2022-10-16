@@ -104,3 +104,10 @@ Output is `7`
 * Code have to calculate expression `x^2-2x+1` for x in \[0; 10\];
 * __Hard mode__: realise function `parse` that parses expression in *Reverse Polish Notation*. Example: `parse("x x 2 - * x * 1 +")(5)`, result is `76`;
 
+Modification (PieSinhCosh):
+* Add constants `PI` and `E`
+* `sinh` - hyperbolic sin, `(sinh 3)` nearly more 10
+* `cosh` - hyperbolic cos, `(cosh 3)` nearly less 10
+
+## Homework 7 (Object expressions on JavaScript)
+
