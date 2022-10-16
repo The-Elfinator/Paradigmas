@@ -111,3 +111,16 @@ Modification (PieSinhCosh):
 
 ## Homework 7 (Object expressions on JavaScript)
 
+Realise classes `Const`, `Variable`, `Add`, `Subtract`, `Multiply`, `Divide`, `Negate` for calculating and representation expressions with 3 variables x, y and z:
+Here is example for representation of expression `2x-3`:
+```JavaScript
+let expr = new Subtract(
+    new Multiply(
+        new Const(2),
+        new Variable("x")
+    ),
+    new Const(3)
+);
+
+println(expr.evaluate(5, 0, 0));
+```
