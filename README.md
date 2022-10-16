@@ -101,26 +101,40 @@ let expr = subtract(
 println(expr(5, 0, 0));
 ```
 Output is `7`
-* Code have to calculate expression `x^2-2x+1` for x in \[0; 10\];
-* __Hard mode__: realise function `parse` that parses expression in *Reverse Polish Notation*. Example: `parse("x x 2 - * x * 1 +")(5)`, result is `76`;
+ * Code have to calculate expression `x^2-2x+1` for x in \[0; 10\];
+ * __Hard mode__: realise function `parse` that parses expression in *Reverse Polish Notation*. Example: `parse("x x 2 - * x * 1 +")(5)`, result is `76`;
 
 Modification (PieSinhCosh):
-* Add constants `PI` and `E`
-* `sinh` - hyperbolic sin, `(sinh 3)` nearly more 10
-* `cosh` - hyperbolic cos, `(cosh 3)` nearly less 10
+ * Add constants `PI` and `E`
+ * `sinh` - hyperbolic sin, `(sinh 3)` nearly more 10
+ * `cosh` - hyperbolic cos, `(cosh 3)` nearly less 10
 
 ## Homework 7 (Object expressions on JavaScript)
+ * Realise classes `Const`, `Variable`, `Add`, `Subtract`, `Multiply`, `Divide`, `Negate` for calculating and representation expressions with 3 variables *x*, *y* and _z_:
+   * Here is example for representation of expression `2x-3`:
+    ```JavaScript
+    let expr = new Subtract(
+        new Multiply(
+           new Const(2),
+           new Variable("x")
+        ),
+        new Const(3)
+    );
 
-Realise classes `Const`, `Variable`, `Add`, `Subtract`, `Multiply`, `Divide`, `Negate` for calculating and representation expressions with 3 variables x, y and z:
-Here is example for representation of expression `2x-3`:
-```JavaScript
-let expr = new Subtract(
-    new Multiply(
-        new Const(2),
-        new Variable("x")
-    ),
-    new Const(3)
-);
+    println(expr.evaluate(5, 0, 0));
+    ```
+   * When calculating such an expression, instead of each variable, its value is substituted, passed as an argument to the evaluate method. Thus, the result of calculating the given example should be the number 7.
+   * _toString_ method must return the expression written in [Reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation). Example: _expr.toString()_ must return ` 2 x * 3 - `
+ * _parse_ function should return parsed object expression
+ * __Hard variant__: method _diff("x")_ must return the expression which is the derivative of original expression by variable _x_. Example: _expr.diff("x")_ should return the expression which is equivalent to `new Const(2)` (expressions `new Subtract(new Const(2), new Const(0))` and 
+`new Subtract(
+    new Add(
+        new Multiply(new Const(0), new Variable("x")),
+        new Multiply(new Const(2), new Const(1))
+    )
+    new Const(0)
+)`
+will be correct answer).
 
-println(expr.evaluate(5, 0, 0));
-```
+Modification:
+Realise unary operations `Sinh` - hyperbolic sinus and `Cosh` - hyperbolic cosinus
